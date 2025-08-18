@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>News Classifier — Verify before you believe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <header class="nc-header">
+        <div class="brand">
+            <div class="logo-dot"></div>
+            <h1>News Classifier</h1>
+        </div>
+        <p class="tagline">Verify before you believe. Evidence-based news analysis.</p>
+    </header>
+
+    <main class="nc-container">
+        <section class="hero-card">
+            <h2>Paste a headline or article</h2>
+            <textarea id="newsText"
+                placeholder="e.g., GST Reform To Rozgar Yojana: PM Modi's Big Independence Day Announcements"></textarea>
+            <div class="actions">
+                <button id="analyzeBtn">Analyze News</button>
+                <small class="hint">No data leaves your page until you click “Analyze”.</small>
+            </div>
+
+            <div id="loading" class="loading" style="display:none;">
+                <div class="spinner"></div>
+                <span>Analyzing with AI…</span>
+            </div>
+        </section>
+
+        <section id="results" class="results" style="display:none;">
+            <div class="verdict-row">
+                <span id="verdictBadge" class="badge">Verdict</span>
+                <span id="locationHint" class="location-hint"></span>
+            </div>
+
+            <div class="probability-meter">
+                <div class="meter-label">Confidence</div>
+                <div class="meter-bar">
+                    <div class="meter-fill" id="probabilityFill"></div>
+                </div>
+                <div class="meter-percent" id="probabilityPercent">0%</div>
+                <div class="prob-split">
+                    <span id="realPct" class="good">Real: 0%</span>
+                    <span id="fakePct" class="bad">Fake: 0%</span>
+                </div>
+            </div>
+
+            <h3 class="evidence-title">Evidence</h3>
+            <div id="evidenceContainer" class="evidence-grid"></div>
+        </section>
+
+        <section class="how-it-works">
+            <h3>How it works</h3>
+            <ul class="steps">
+                <li><strong>Analyze</strong> — We vectorize your text and run it through a trained model.</li>
+                <li><strong>Verify</strong> — We search trusted sources (Live). If offline or limited, we consult our
+                    archive.</li>
+                <li><strong>Explain</strong> — We show evidence sources with links, dates, and badges.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="nc-footer">
+        <span>© {{ 2025 }} News Classifier</span>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

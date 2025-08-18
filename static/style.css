@@ -1,0 +1,357 @@
+/* --- Core look (keeps your existing vibe) --- */
+:root {
+    --bg: #0e1420;
+    --card: #121a2a;
+    --text: #e8edf6;
+    --muted: #9fb0c9;
+    --primary: #00d4ff;
+    /* cyan accent for CTAs */
+    --good: #27c773;
+    /* green */
+    --bad: #ff4d61;
+    /* red */
+    --gold: #f2c14e;
+    /* trusted highlight */
+    --shadow: 0 10px 30px rgba(0, 0, 0, .25);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Header */
+.nc-header {
+    padding: 28px 18px;
+    text-align: center;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--primary);
+    box-shadow: 0 0 16px var(--primary);
+}
+
+.nc-header h1 {
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: .3px;
+}
+
+.tagline {
+    margin: 6px 0 0;
+    color: var(--muted);
+}
+
+/* Container */
+.nc-container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 16px 60px;
+}
+
+/* Hero card */
+.hero-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, .03), rgba(255, 255, 255, 0)), var(--card);
+    border: 1px solid rgba(255, 255, 255, .07);
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: var(--shadow);
+}
+
+.hero-card h2 {
+    margin-top: 0;
+    font-weight: 600;
+}
+
+.hero-card textarea {
+    width: 100%;
+    min-height: 130px;
+    resize: vertical;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: #0b1320;
+    color: var(--text);
+    border: 1px solid rgba(255, 255, 255, .08);
+    outline: none;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 12px;
+}
+
+.actions button {
+    background: var(--primary);
+    color: #001018;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 212, 255, .2);
+}
+
+.actions button:hover {
+    transform: translateY(-1px);
+}
+
+.hint {
+    color: var(--muted);
+}
+
+/* Loading */
+.loading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.spinner {
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(255, 255, 255, .2);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Results */
+.results {
+    margin-top: 22px;
+}
+
+.verdict-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.badge {
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 700;
+    letter-spacing: .3px;
+    background: #1a2338;
+    border: 1px solid rgba(255, 255, 255, .08);
+}
+
+.badge.real {
+    background: rgba(39, 199, 115, .18);
+    color: #b7f5d1;
+    border-color: rgba(39, 199, 115, .35);
+}
+
+.badge.fake {
+    background: rgba(255, 77, 97, .18);
+    color: #ffd0d6;
+    border-color: rgba(255, 77, 97, .35);
+}
+
+.badge.unknown {
+    background: rgba(255, 255, 255, .08);
+    color: #eaeef7;
+}
+
+.location-hint {
+    color: var(--muted);
+}
+
+/* Probability meter */
+.probability-meter {
+    text-align: center;
+    margin: 16px auto 20px;
+    max-width: 560px;
+}
+
+.meter-label {
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+.meter-bar {
+    background: #0b1320;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 18px;
+    border: 1px solid rgba(255, 255, 255, .06);
+}
+
+.meter-fill {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--bad), var(--good));
+    transition: width .6s ease;
+}
+
+.meter-percent {
+    margin-top: 6px;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+.prob-split {
+    margin-top: 6px;
+    display: flex;
+    justify-content: space-between;
+    color: var(--muted);
+}
+
+.good {
+    color: var(--good);
+    font-weight: 600;
+}
+
+.bad {
+    color: var(--bad);
+    font-weight: 600;
+}
+
+/* Evidence */
+.evidence-title {
+    margin: 18px 0 8px;
+}
+
+.evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+}
+
+.evidence-card {
+    background: var(--card);
+    border: 1px solid rgba(255, 255, 255, .07);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform .18s ease, box-shadow .18s ease;
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    grid-template-rows: auto;
+}
+
+.evidence-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, .35);
+}
+
+.thumb {
+    width: 110px;
+    min-height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-color: #0b1320;
+}
+
+.thumb-placeholder {
+    background-image: linear-gradient(135deg, rgba(0, 212, 255, .1), rgba(242, 193, 78, .12));
+}
+
+.evidence-card .content {
+    padding: 10px 12px;
+}
+
+.meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.pill {
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 11px;
+    border: 1px solid rgba(255, 255, 255, .08);
+}
+
+.pill.live {
+    background: rgba(0, 212, 255, .18);
+    color: #98f1ff;
+    border-color: rgba(0, 212, 255, .35);
+}
+
+.pill.archive {
+    background: rgba(242, 193, 78, .18);
+    color: #ffe7a9;
+    border-color: rgba(242, 193, 78, .35);
+}
+
+.headline {
+    margin: 6px 0 2px;
+    font-size: 15px;
+    line-height: 1.35;
+}
+
+.headline a {
+    color: #e9f4ff;
+    text-decoration: none;
+}
+
+.headline a:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.sim {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.how-it-works {
+    margin-top: 30px;
+    background: #0b1320;
+    border: 1px solid rgba(255, 255, 255, .06);
+    border-radius: 14px;
+    padding: 14px;
+}
+
+.steps {
+    margin: 10px 0 0;
+    padding-left: 18px;
+    color: var(--muted);
+}
+
+.nc-footer {
+    text-align: center;
+    padding: 30px 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* Utility */
+.muted {
+    color: var(--muted);
+}
