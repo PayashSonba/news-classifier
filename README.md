@@ -1,17 +1,26 @@
-# 📰 News Classifier  
+# 📰 News Classifier – Fake vs Real News Detection  
 
-An AI-powered web application that detects **Fake vs Real News** using **Machine Learning (NLP + Logistic Regression)**.  
-Built with **Python, Flask, and Scikit-learn** 🚀  
+[![Made with Flask](https://img.shields.io/badge/Made%20with-Flask-blue)](https://flask.palletsprojects.com/)  
+[![Scikit-learn](https://img.shields.io/badge/ML-Scikit--learn-orange)](https://scikit-learn.org/)  
+[![Deployed on Render](https://img.shields.io/badge/Deployed%20on-Render-green)](https://render.com/)  
+
+🔗 **Live Demo:** [https://your-app.onrender.com](https://news-classifier-mglr.onrender.com)  
 
 ---
 
-## 🌟 Features
-✅ Classifies news as **Real** or **Fake**  
-✅ Confidence scores for predictions  
-✅ User-friendly Flask web interface  
-✅ Evidence cards with professional UI  
-✅ Trained on a merged dataset of real and fake news articles  
+## 🚀 About the Project
+The **News Classifier** is a web app that helps you check if a news article is **Real or Fake**.  
+It uses a trained Machine Learning model (Logistic Regression with TF-IDF features) and enhances predictions with **Google News RSS evidence**.  
 
+---
+
+## ✨ Features
+- 🧠 ML-powered fake news detection  
+- 📊 Confidence score (Real vs Fake probability)  
+- 🔎 Evidence cards from **Google News RSS** + fallback to local dataset  
+- 🌍 Simple, clean Flask-based web interface  
+- ☁️ Deployed live on **Render**
+  
 ---
 
 ## ⚙️ Tech Stack
@@ -31,10 +40,12 @@ News_Classifier/
 │── data.csv             # Dataset (ignored in GitHub)  
 │── templates/           # HTML templates (index.html, result.html)  
 │── static/              # CSS, JS, images  
-│── requirements.txt     # Project dependencies  
+│── requirements.txt     # Project dependencies
+├── Procfile             # Start command for Render 
 │── README.md            # You are here
+```
 
----
+<hr>
 
 ## 📊 Model Training
 
@@ -53,7 +64,7 @@ The repository includes **train_model.py**, which allows you to retrain the mode
 
 ---
 
-# Once training is done, app.py will automatically use news_model.pkl for predictions.
+ Once training is done, app.py will automatically use news_model.pkl for predictions.
 
 ⚠️ Note:
 The dataset used to build this project is not included in the repository (to keep the repo lightweight).
