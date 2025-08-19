@@ -373,12 +373,8 @@ def predict():
     })
 
 if __name__ == "__main__":
-    # Optional: open browser automatically (Windows-friendly)
-    try:
-        import webbrowser
-        webbrowser.open("http://127.0.0.1:5000", new=2)
-    except Exception:
-        pass
-    port = int(os.environ.get("PORT", 5000))  # Render gives PORT env variable
+    port = int(os.environ.get("PORT", 5000))
+    # ✅ Works both locally and on Render
     app.run(host="0.0.0.0", port=port, debug=False)
+
 
