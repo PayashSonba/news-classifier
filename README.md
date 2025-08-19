@@ -36,12 +36,14 @@ It uses a trained Machine Learning model (Logistic Regression with TF-IDF featur
 News_Classifier/
 │── app.py               # Flask web app  
 │── train_model.py       # ML training script  
-│── news_model.pkl       # Trained ML model (ignored in GitHub)  
+│── news_model.pkl       # Trained ML model (ignored in GitHub)
+├── vectorizer.pkl       # Saved TF-IDF vectorizer used with the model  
 │── data.csv             # Dataset (ignored in GitHub)  
 │── templates/           # HTML templates (index.html, result.html)  
 │── static/              # CSS, JS, images  
 │── requirements.txt     # Project dependencies
-├── Procfile             # Start command for Render 
+├── Procfile             # Start command for Render
+├── .gitignore           # Specifies files/folders ignored by Git
 │── README.md            # You are here
 ```
 
