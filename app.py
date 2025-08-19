@@ -379,4 +379,6 @@ if __name__ == "__main__":
         webbrowser.open("http://127.0.0.1:5000", new=2)
     except Exception:
         pass
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Render gives PORT env variable
+    app.run(host="0.0.0.0", port=port, debug=False)
+
